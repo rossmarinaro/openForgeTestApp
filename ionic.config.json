@@ -1,0 +1,7 @@
+{
+  "name": "openForgeTestApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
