@@ -10,19 +10,7 @@ import { Octokit } from 'octokit';
 
 export class UsersPage implements OnInit {
 
- 
   users: User[] = [];
-
-  
-  // users: User[] = [
-  //   {
-  //     id: 'name',
-  //     login: 'name',
-  //     avatar_url: 'https://github.com/rossmarinaro/openForgeTestApp/blob/main/src/assets/icon/favicon.png',
-  //     html_url: '',
-  //     repos_url: []
-  //   }
-  // ]
 
   constructor() { }
 
@@ -33,27 +21,36 @@ export class UsersPage implements OnInit {
 
   }
 
+  //----------------- get users from github and display them
+
   async getUsers()
   {
-    const octokit = new Octokit({
-    //  auth: ''
-    })
 
-    const accounts = await octokit.request('GET /users', {});
+  //get user accounts
 
-    accounts.data.map(account => {
+    const octokit = new Octokit(),
+          accounts = await octokit.request('GET /users', {});
+
+    accounts.data.map(async account => {
       
+      const user = await octokit.request(`GET /users/${account.login}`, {
+        username: 'USERNAME'
+      });
+    
+    //push account to users array
+
       this.users.push({
         id: account.id,
+        public_repos: user.data.public_repos,
         login: account.login,
         avatar_url: account.avatar_url,
         html_url: account.html_url,
         repos_url: account.repos_url
-      })
-      console.log('account: ', account);
+      });
+
+
     });
 
-    
   }
 
 }

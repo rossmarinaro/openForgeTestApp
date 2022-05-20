@@ -10,8 +10,9 @@
       <ion-avatar slot="start">
         <ion-img [src]="user.avatar_url"></ion-img>
       </ion-avatar>
-      <ion-label>
+      <ion-label [ngStyle]="user.public_repos > 2 && {color: '#ff0000'} ">
         {{ user.login }}
+        {{user.public_repos}}
       </ion-label>
     </ion-item>
   </ion-list>
