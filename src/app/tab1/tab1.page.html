@@ -13,14 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-
   <ion-list>
     
     <ion-item *ngFor="let user of users">
 
-        <ion-tab-button tab="tab2" style="padding-bottom: 25px;">
-
-          <div style="display: flex;">
+          <div (click)="selectUser()" style="display: flex;">
 
             <ion-avatar style="border: 0.3em solid rgb(24, 66, 125);" slot="start">
               <ion-img [src]="user.avatar_url"></ion-img>
@@ -31,11 +28,10 @@
             </ion-label>
 
           </div>
-        
-        </ion-tab-button >
 
       </ion-item>
   </ion-list>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
 </ion-content>

@@ -14,16 +14,15 @@
       </ion-toolbar>
 
   </ion-header>
-  <ion-input type="text" placeholder="search user" ></ion-input>
+  <ion-input id="" type="text" placeholder="search user" ></ion-input>
 
   <ion-list>
     <ion-item *ngFor="let user of users">
       <ion-avatar slot="start">
         <ion-img [src]="user.avatar_url"></ion-img>
       </ion-avatar>
-      <ion-label [ngStyle]="user.public_repos > 2 && {color: '#ff0000'} ">
+      <ion-label [ngStyle]="user.login ===  && {color: '#ff0000'} ">
         {{ user.login }}
-        {{ user.public_repos }}
       </ion-label>
     </ion-item>
   </ion-list>
