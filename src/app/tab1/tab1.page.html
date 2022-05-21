@@ -17,10 +17,10 @@
     
     <ion-item *ngFor="let user of users">
 
-          <div (click)="selectUser()" style="display: flex;">
+          <div style="display: flex;">
 
             <ion-avatar style="border: 0.3em solid rgb(24, 66, 125);" slot="start">
-              <ion-tab-button tab="tab2"> 
+              <ion-tab-button (click)="selectUser(user)" tab="tab2"> 
                 <ion-img [src]="user.avatar_url"></ion-img>
               </ion-tab-button>
             </ion-avatar>

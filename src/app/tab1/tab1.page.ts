@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User, fetchUsers } from '../users';
+import * as Utils from '../utils';
 
 
 @Component({
@@ -18,12 +19,11 @@ export class Tab1Page {
     fetchUsers(this.users);
   }
 
-
   //------------------ select user
 
-  selectUser()
+  selectUser(user: any)
   {
-
+    return Utils.getElementById('search-user').value = user.login;
   }
 
 }
