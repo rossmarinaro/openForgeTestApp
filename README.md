@@ -1,4 +1,4 @@
-# Open Forge Test App With Ionic Framework
+# Open Forge Test App With Ionic Framework ![image info](./src/assets/icon/favicon.png)
 
 ** Ionic with Angular**
 
@@ -6,4 +6,3 @@
 
 ![image info](./src/assets/icon/openforge-logo.png)
 
-![image info](./src/assets/icon/favicon.png)
