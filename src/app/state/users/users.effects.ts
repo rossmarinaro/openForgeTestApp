@@ -25,7 +25,7 @@ export class UsersEffects {
       ofType(loadUsers),
       switchMap(() =>
         from(this.UsersService.getUsers()).pipe(
-          map(users => loadUsersSuccess({ users: users[''] })),
+          map(users => loadUsersSuccess({ users: users })),
           catchError(error => of(loadUsersFailure({ error })))
         )
       )
