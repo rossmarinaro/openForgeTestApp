@@ -3,7 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full'},
+//  {path: '', redirectTo: 'users', pathMatch: 'full'},
+  {
+    path: '', 
+    //redirectTo: '', 
+    //pathMatch: 'full',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
   {
     path: 'users',
     children: [
