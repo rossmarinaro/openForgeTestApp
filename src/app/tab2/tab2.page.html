@@ -14,18 +14,25 @@
       </ion-toolbar>
 
   </ion-header>
-  <ion-input id="" type="text" placeholder="search user" ></ion-input>
+
+  <form (submit)="submitSearch()" >
+    <input  [(ngModel)]="username" [ngModelOptions]="{standalone: true}" id="search-user" type="text" placeholder="search user"/> 
+  </form>
 
   <ion-list>
     <ion-item *ngFor="let user of users">
-      <ion-avatar slot="start">
-        <ion-img [src]="user.avatar_url"></ion-img>
+      <ion-avatar id="user-avatar" slot="start">
+        <!-- inject user avatar on search -->
       </ion-avatar>
-      <ion-label [ngStyle]="user.login ===  && {color: '#ff0000'} ">
-        {{ user.login }}
+      <ion-label id="user-login" [ngStyle]="user.public_repos > 2 && {color: '#ff0000'}">
+        <!-- inject user login on search -->
       </ion-label>
     </ion-item>
   </ion-list>
 
   <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>
+
+
+
+<!-- </ion-tab-button> -->

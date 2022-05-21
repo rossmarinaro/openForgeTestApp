@@ -20,7 +20,9 @@
           <div (click)="selectUser()" style="display: flex;">
 
             <ion-avatar style="border: 0.3em solid rgb(24, 66, 125);" slot="start">
-              <ion-img [src]="user.avatar_url"></ion-img>
+              <ion-tab-button tab="tab2"> 
+                <ion-img [src]="user.avatar_url"></ion-img>
+              </ion-tab-button>
             </ion-avatar>
             
             <ion-label tab="tab2" style="padding: 25px;" [ngStyle]="user.public_repos > 2 && {color: '#ff0000'} ">
@@ -30,6 +32,7 @@
           </div>
 
       </ion-item>
+      
   </ion-list>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
