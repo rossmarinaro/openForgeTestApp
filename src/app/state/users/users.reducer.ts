@@ -7,18 +7,18 @@ import {
 import { User } from '../../users';
 
 export interface UsersState {
-  todos: User[];
+  users: User[];
   error: string;
   status: 'pending' | 'loading' | 'error' | 'success';
 }
 
 export const initialState: UsersState = {
-  todos: [],
+  users: [],
   error: null,
   status: 'pending',
 };
 
-export const todoReducer = createReducer(
+export const usersReducer = createReducer(
 
   initialState,
 

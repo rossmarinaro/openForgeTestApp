@@ -14,9 +14,5 @@ export class UsersService {
     return (await this.storage.get('users')) || [];
   }
 
-  async saveUsers(users: User[]) {
-    if (!this.storageInitialised) await this.storage.create();
 
-    return this.storage.set('users', users);
-  }
 }
