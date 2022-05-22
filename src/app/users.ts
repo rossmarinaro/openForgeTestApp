@@ -19,6 +19,8 @@ export async function fetchUsers(users: User[])
     const octokit = new Octokit(),
     accounts = await octokit.request('GET /users', {});
 
+    console.log(accounts.headers.link); //rel=next 
+
     accounts.data.map(async account => {
       
       const user = await octokit.request(`GET /users/${account.login}`, { username: 'USERNAME' });
@@ -33,7 +35,6 @@ export async function fetchUsers(users: User[])
         html_url: account.html_url,
         repos_url: account.repos_url
       });
-
 
     });
 }
