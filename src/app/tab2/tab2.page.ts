@@ -36,9 +36,9 @@ export class Tab2Page {
 
   submitSearch(_user: User)
   {
-      for (let user of this.users)
-        if (Utils.getElementById('search-user').value === user.login)
-          this.renderAccount(user);
+    for (let user of this.users)
+      if (Utils.getElementById('search-user').value === user.login)
+        this.renderAccount(user);
 
     return false;
   }

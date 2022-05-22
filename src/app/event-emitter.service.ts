@@ -22,15 +22,14 @@ export class EventEmitterService {
     { 
 
       Utils.getElementById('search-user').value = user.login;
-      this.submitSearch(user);
+      this.getUser(user);
     }
     
 
-  //-------------------------- submit / apply search results, add image and login to template
-
-    async submitSearch(user: User)
+  //-------------------------- get user
+  
+    async getUser(user: User)
     {
-
       console.log('user: ', user);  
 
       return this.invokeRenderUserInfo.emit(
