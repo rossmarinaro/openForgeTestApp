@@ -4,7 +4,11 @@ import { Observable } from 'rxjs';
 import { loadUsers } from '../state/users/users.actions';
 import { selectAllUsers } from '../state/users/users.selectors';
 import { Store } from '@ngrx/store';
+import { EventEmitterService } from '../event-emitter.service';  
+import { AppState } from '../state/app.state';
+
 import * as Utils from '../utils';
+
 
 @Component({
   selector: 'app-tab1',
@@ -13,25 +17,30 @@ import * as Utils from '../utils';
 })
 
 export class Tab1Page {
-  public allUsers$ = this.store.select(selectAllUsers);
-  public user = '';
-  users: User[] = [];
 
-  constructor(private store: Store) { }
+  public user = '';
+  public allUsers$: Observable<User[]>
+  users: User[] = [];
+  
+
+  constructor(
+      private store: Store<AppState>,
+      private eventEmitterService: EventEmitterService    
+    ) { 
+    this.allUsers$ = this.store.select(selectAllUsers);
+  }
 
   async ngOnInit() 
   {
+
+    // if (this.eventEmitterService.subsVar == undefined) 
+    // {    
+    //   this.eventEmitterService.subsVar = this.eventEmitterService.    
+    //   invokeRenderUserInfo.subscribe((user) => this.selectUser(user));    
+    // } 
     this.store.dispatch(loadUsers());
     fetchUsers(this.users);
   }
 
-  //------------------ select user
 
-  selectUser(user: any)
-  {
-    return Utils.getElementById('search-user').value = user.login;
-  }
-
-}
-
-
+} 

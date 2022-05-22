@@ -1,10 +1,11 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, Action } from '@ngrx/store';
+import { User } from '../../users';
 import {
   loadUsers,
   loadUsersSuccess,
   loadUsersFailure,
 } from './users.actions';
-import { User } from '../../users';
+
 
 export interface UsersState {
   users: User[];
@@ -37,3 +38,31 @@ export const usersReducer = createReducer(
     status: 'error',
   }))
 );
+
+
+// const userData = {
+//   id: null,
+//   public_repos: null,
+//   login: null,
+//   avatar_url: null,
+//   html_url: null,
+//   repos_url: null
+// }
+
+// export function usersReducer(state = []/* userData */, action: Action)
+// {
+//   switch(action.type)
+//   {
+//     case 'LOADED':
+//         return [
+//           ...state,
+//           {
+//             user: ++action.payload.user,
+//             description: action.payload.description,
+//             resolved: false
+//           }
+//         ];
+//       default:
+//         return state;
+//   }
+// }

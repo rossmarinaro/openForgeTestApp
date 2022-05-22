@@ -1,5 +1,10 @@
 import { UsersState } from './users/users.reducer';
 
 export interface AppState {
-    users: UsersState;
+   type: 'LOADED',
+   payload: {
+       users: UsersState,
+       user: 0,
+       description: 'user profile rendered'
+   }
 }
