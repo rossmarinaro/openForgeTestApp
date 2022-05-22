@@ -1,11 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
+import { loadUsers, loadUsersSuccess, loadUsersFailure } from './users.actions';
 import { User } from '../../users';
-import {
-  loadUsers,
-  loadUsersSuccess,
-  loadUsersFailure,
-} from './users.actions';
-
 
 export interface UsersState {
   users: User[];
@@ -39,15 +34,6 @@ export const usersReducer = createReducer(
   }))
 );
 
-
-// const userData = {
-//   id: null,
-//   public_repos: null,
-//   login: null,
-//   avatar_url: null,
-//   html_url: null,
-//   repos_url: null
-// }
 
 // export function usersReducer(state = []/* userData */, action: Action)
 // {

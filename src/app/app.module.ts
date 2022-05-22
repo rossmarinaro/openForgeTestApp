@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { usersReducer } from './state/users/users.reducer';
-import { EventEmitterService } from './event-emitter.service';
+//import { EventEmitterService } from './event-emitter.service';
 
 @NgModule({
   declarations: [AppComponent],

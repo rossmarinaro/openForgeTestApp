@@ -11,34 +11,32 @@ export class EventEmitterService {
     
   invokeRenderUserInfo = new EventEmitter();    
   subsVar: Subscription;    
-    
+  users: User[] = [];
+
   constructor() { }    
 
 
   //------------------ select user from input
 
-    selectUser(user: User, users: User[])
+    async selectUser(user: User)
     { 
-      this.submitSearch(users);
-      return Utils.getElementById('search-user').value = user.login;
+
+      Utils.getElementById('search-user').value = user.login;
+      this.submitSearch(user);
     }
     
-    
+
   //-------------------------- submit / apply search results, add image and login to template
 
-    submitSearch(users: User[])
+    async submitSearch(user: User)
     {
-  
-      for (let user of users)
-        if (Utils.getElementById('search-user').value === user.login)
-        {
-          let avatar = Utils.getElementById('user-avatar').appendChild(Utils.createElement(typeof HTMLIonImgElement, 'ion-img'));   
-          avatar.src = user.avatar_url;
-          Utils.getElementById('user-login').innerHTML = user.login;
-        }
 
-        this.invokeRenderUserInfo.emit();    
+      console.log('user: ', user);  
 
-      return false;
+      return this.invokeRenderUserInfo.emit(
+         user !== null ? 
+            user : Utils.getElementById('search-user').value
+       );    
     }
+
 }

@@ -7,8 +7,6 @@ import { Store } from '@ngrx/store';
 import { EventEmitterService } from '../event-emitter.service';  
 import { AppState } from '../state/app.state';
 
-import * as Utils from '../utils';
-
 
 @Component({
   selector: 'app-tab1',
@@ -30,17 +28,19 @@ export class Tab1Page {
     this.allUsers$ = this.store.select(selectAllUsers);
   }
 
-  async ngOnInit() 
+  ngOnInit() 
   {
 
-    // if (this.eventEmitterService.subsVar == undefined) 
-    // {    
-    //   this.eventEmitterService.subsVar = this.eventEmitterService.    
-    //   invokeRenderUserInfo.subscribe((user) => this.selectUser(user));    
-    // } 
-    this.store.dispatch(loadUsers());
-    fetchUsers(this.users);
-  }
+    if (this.eventEmitterService.subsVar == undefined) 
+    {    
+      //this.eventEmitterService.subsVar = this.eventEmitterService.    
+      //invokeRenderUserInfo.subscribe((user) => this.eventEmitterService.submitSearch(user));    
+    } 
 
+    this.store.dispatch(loadUsers());
+
+    fetchUsers(this.users);
+    
+  }
 
 } 
