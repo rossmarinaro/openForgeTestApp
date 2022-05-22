@@ -37,7 +37,9 @@ export class Tab1Page {
     fetchUsers(this.users);
     
   }
-  loadData(event) { console.log(event)
+  loadData(event: any) { 
+    
+    console.log(event)
     // setTimeout(() => {
     //   console.log('Done');
     //   event.target.complete();

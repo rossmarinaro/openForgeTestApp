@@ -37,4 +37,6 @@ export async function fetchUsers(users: User[])
       });
 
     });
+
+    return false;
 }

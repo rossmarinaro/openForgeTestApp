@@ -21,13 +21,13 @@
   </form>
 
   <ion-list>
-    <ion-item *ngFor="let user of users">
+    <ion-item>
       <ion-avatar id="user-avatar" slot="start">
 
         <!-- inject user avatar on search -->
 
       </ion-avatar>
-      <ion-label id="user-login" [ngStyle]="user.public_repos > 2 && {color: '#ff0000'}">
+      <ion-label id="user-login" >
 
         <!-- inject user login on search -->
         

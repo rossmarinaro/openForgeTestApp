@@ -22,14 +22,9 @@ export class Tab2Page {
 
     ngOnInit() 
     {
-
       if (this.eventEmitterService.subsVar == undefined)  
-      {    
-        this.eventEmitterService.subsVar = this.eventEmitterService.    
-        invokeRenderUserInfo.subscribe((user) => this.renderAccount(user));    
-      } 
-
-      fetchUsers(this.users);
+        this.eventEmitterService.subsVar = this.eventEmitterService.invokeRenderUserInfo.subscribe((user) => this.renderAccount(user));    
+    
     }
 
   //-------------------------- submit / apply search results, add image and login to template
@@ -48,9 +43,33 @@ export class Tab2Page {
 
   renderAccount(user: User)
   {
-    let avatar = Utils.getElementById('user-avatar').appendChild(Utils.createElement(typeof HTMLIonImgElement, 'ion-img'));   
-    avatar.src = user.avatar_url;
-    Utils.getElementById('user-login').innerHTML = user.login;
+
+    const userImage = Utils.getElementById('user-image'),
+
+    showImage = () => {
+      
+      let image = Utils.createElement(typeof HTMLIonImgElement, 'ion-img');
+
+        image.setAttribute('id', 'user-image');
+
+        let avatar = Utils.getElementById('user-avatar').appendChild(image);   
+        avatar.src = user.avatar_url;
+        
+        Utils.getElementById('user-login').innerHTML = user.login;
+    
+    }
+
+    if (userImage === null)
+      showImage();
+
+    else 
+    {
+      userImage.remove();
+      showImage();
+    }
+
   }
+
+
 
 }
