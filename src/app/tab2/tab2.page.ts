@@ -50,29 +50,30 @@ export class Tab2Page {
 
     showImage = () => {
       
-      let image = Utils.createElement(typeof HTMLIonImgElement, 'ion-img');
-
+        let image = Utils.createElement(typeof HTMLIonImgElement, 'ion-img');
         image.setAttribute('id', 'user-image');
 
         let avatar = Utils.getElementById('user-avatar').appendChild(image);   
         avatar.src = user.avatar_url;
         
+      //set search bar and login to proper account
+
         Utils.getElementById('user-login').innerHTML = user.login;
         Utils.getElementById('search-user').value = user.login;
     
     }
 
-    if (userImage === null)
-      showImage();
+  //show profile results
 
-    else 
+    if (userImage !== null)
     {
       userImage.remove();
       showImage();
     }
+    else 
+      showImage();
 
   }
-
 
 
 }

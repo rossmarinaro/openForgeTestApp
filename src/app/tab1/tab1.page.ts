@@ -37,16 +37,9 @@ export class Tab1Page {
     fetchUsers(this.users);
     
   }
-  loadData(event: any) { 
-    
-    console.log(event)
-    // setTimeout(() => {
-    //   console.log('Done');
-    //   event.target.complete();
-    //  if (data.length === 1000) {
-    //    event.target.disabled = true;
-    //   }
-    // }, 500);
+  loadData(event: any) 
+  { 
+    console.log(event) 
   }
 
   toggleInfiniteScroll() {
