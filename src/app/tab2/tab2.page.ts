@@ -23,14 +23,16 @@ export class Tab2Page {
     ngOnInit() 
     {
       if (this.eventEmitterService.subsVar == undefined)  
-        this.eventEmitterService.subsVar = this.eventEmitterService.invokeRenderUserInfo.subscribe((user) => this.renderAccount(user));    
-    
+        this.eventEmitterService.subsVar = this.eventEmitterService.invokeRenderUserInfo.subscribe((user) => this.renderAccount(user));  
+
+      fetchUsers(this.users);
     }
 
   //-------------------------- submit / apply search results, add image and login to template
 
-  submitSearch(_user: User)
+  submitSearch()
   {
+    
     for (let user of this.users)
       if (Utils.getElementById('search-user').value === user.login)
         this.renderAccount(user);
@@ -56,6 +58,7 @@ export class Tab2Page {
         avatar.src = user.avatar_url;
         
         Utils.getElementById('user-login').innerHTML = user.login;
+        Utils.getElementById('search-user').value = user.login;
     
     }
 
