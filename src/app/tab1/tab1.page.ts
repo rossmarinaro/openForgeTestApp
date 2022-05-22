@@ -30,15 +30,8 @@ export class Tab1Page {
 
   ngOnInit() 
   {
-
-    if (this.eventEmitterService.subsVar == undefined) 
-    {    
-      //this.eventEmitterService.subsVar = this.eventEmitterService.    
-      //invokeRenderUserInfo.subscribe((user) => this.eventEmitterService.submitSearch(user));    
-    } 
-
+  
     this.store.dispatch(loadUsers());
-
     fetchUsers(this.users);
     
   }
