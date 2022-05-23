@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { User, fetchUsers, fetchMoreAccounts } from '../users';
+import { User, fetchAccounts } from '../users';
 import { Observable } from 'rxjs';
 import { loadUsers } from '../state/users/users.actions';
 import { selectAllUsers } from '../state/users/users.selectors';
@@ -34,15 +34,15 @@ export class Tab1Page {
   {
   
     this.store.dispatch(loadUsers());
-    fetchUsers(this.users);
+    fetchAccounts(this.users, 0, false);
     
   }
   loadAccounts(event: any) 
   { 
     console.log('loading more accounts...\n', event);
-    
+
     this.accountsLoaded += 46;
-    fetchMoreAccounts(this.users, this.accountsLoaded);
+    fetchAccounts(this.users, this.accountsLoaded, true);
   }
 
   toggleInfiniteScroll() {

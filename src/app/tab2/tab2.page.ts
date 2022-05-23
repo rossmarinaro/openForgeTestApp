@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { User, fetchUsers } from '../users';
+import { User, fetchAccounts } from '../users';
 import { EventEmitterService } from '../event-emitter.service';  
 
 import * as Utils from '../utils';
@@ -25,7 +25,7 @@ export class Tab2Page {
       if (this.eventEmitterService.subsVar == undefined)  
         this.eventEmitterService.subsVar = this.eventEmitterService.invokeRenderUserInfo.subscribe((user) => this.renderAccount(user));  
 
-      fetchUsers(this.users);
+      fetchAccounts(this.users, 0, false);
     }
 
   //-------------------------- submit / apply search results, add image and login to template
