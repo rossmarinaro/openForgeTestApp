@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { User, fetchUsers } from '../users';
+import { User, fetchUsers, fetchMoreAccounts } from '../users';
 import { Observable } from 'rxjs';
 import { loadUsers } from '../state/users/users.actions';
 import { selectAllUsers } from '../state/users/users.selectors';
@@ -21,7 +21,7 @@ export class Tab1Page {
   public user = '';
   public allUsers$: Observable<User[]>
   users: User[] = [];
-  
+  accountsLoaded: number = 0;
 
   constructor(
       private store: Store<AppState>,
@@ -37,9 +37,12 @@ export class Tab1Page {
     fetchUsers(this.users);
     
   }
-  loadData(event: any) 
+  loadAccounts(event: any) 
   { 
-    console.log(event) 
+    console.log('loading more accounts...\n', event);
+    
+    this.accountsLoaded += 46;
+    fetchMoreAccounts(this.users, this.accountsLoaded);
   }
 
   toggleInfiniteScroll() {
