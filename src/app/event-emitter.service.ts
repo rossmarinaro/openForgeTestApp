@@ -20,11 +20,11 @@ export class EventEmitterService {
 
     async selectUser(user: User)
     { 
-      let searchBarContent = Utils.getElementById('search-user').value;
+      let searchBarContent = Utils.getElementById('search-user');
 
-      if(searchBarContent !== null)
-        searchBarContent = user.login;
-        
+      if(searchBarContent.value !== null)
+        searchBarContent.value = user.login;
+
       this.getUser(user);
     }
     
